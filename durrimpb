@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Durrim's Page</title>
+    <style>
+        body {
+            background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+        }
+        h1 {
+            text-align: center;
+            color: gold;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .section h2 {
+            color: lightgoldenrodyellow;
+        }
+        .edit-section {
+            display: none;
+        }
+        .edit-section textarea {
+            width: 100%;
+            height: 100px;
+        }
+        .edit-section button {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Durrim's Page</h1>
+        <div id="about-me" class="section">
+            <h2>About Me</h2>
+            <p>My name is Durrim and I am a 9-year-old who lives in Red Deer, AB. I like watching TV and playing video games in my free time. I have one younger brother and one older sister.</p>
+        </div>
+        <div id="youtube-channel" class="section">
+            <h2>My YouTube Channel</h2>
+            <p>Check out my YouTube channel: <a href="https://www.youtube.com/@hackerboi-pp8ir" target="_blank">Hackerboi</a></p>
+        </div>
+        <div id="edit-section" class="edit-section">
+            <h2>Edit Section</h2>
+            <textarea id="editable-content"></textarea>
+            <button onclick="saveContent()">Save</button>
+        </div>
+        <div id="login-section" class="section">
+            <h2>Login to Edit</h2>
+            <input type="password" id="password" placeholder="Enter passcode">
+            <button onclick="checkPassword()">Login</button>
+        </div>
+    </div>
+
+    <script>
+        const passcode = "imdurrim512";
+
+        function checkPassword() {
+            const passwordInput = document.getElementById('password').value;
+            if (passwordInput === passcode) {
+                document.getElementById('edit-section').style.display = 'block';
+                document.getElementById('login-section').style.display = 'none';
+            } else {
+                alert('Incorrect passcode');
+            }
+        }
+
+        function saveContent() {
+            const content = document.getElementById('editable-content').value;
+            const aboutMeSection = document.getElementById('about-me').querySelector('p');
+            aboutMeSection.textContent = content;
+        }
+    </script>
+</body>
+</html>
